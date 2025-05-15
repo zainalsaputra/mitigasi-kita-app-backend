@@ -42,8 +42,10 @@ server.listen(PORT,HOST, () => {
   console.log(`Server is running at http://${HOST}:${PORT}`);
 });
 
-const { connectToDatabase } = require("./config/mongo.config");
+const { connectToMongod } = require('./config/mongo.config');
+const { connectToPostgres } = require('./config/postgres.config');
 
-connectToDatabase();
+connectToMongod();
+connectToPostgres();
 
 module.exports = app;
