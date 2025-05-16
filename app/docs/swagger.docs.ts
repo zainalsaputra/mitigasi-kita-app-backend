@@ -1,9 +1,12 @@
-const swaggerJsDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
-const express = require("express");
-require("dotenv").config();
+import swaggerJsDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import express, { Application } from "express";
+import path from "path";
+import dotenv from "dotenv";
 
-const swaggerOptions = {
+dotenv.config();
+
+const swaggerOptions: swaggerJsDoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
@@ -45,12 +48,12 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: [__dirname + "/../routes/*.js"],
+  apis: [path.join(__dirname, "../routes/*.ts")],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-const setupSwagger = (app) => {
+const setupSwagger = (app: Application): void => {
   app.use(
     "/docs",
     swaggerUi.serve,
@@ -70,12 +73,13 @@ const setupSwagger = (app) => {
       "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
   });
 
-  const serverUrls = swaggerOptions.definition.servers.map(
-    (server) => server.url,
-  );
-  serverUrls.forEach((url) =>
-    console.log(`Swagger docs available at : ${url}/docs`),
-  );
+  // const serverUrls = swaggerOptions.definition.servers?.map(
+  //   (server) => server.url,
+  // ) || [];
+
+  // serverUrls.forEach((url) =>
+  //   console.log(`Swagger docs available at : ${url}/docs`)
+  // );
 };
 
-module.exports = setupSwagger;
+export default setupSwagger;
