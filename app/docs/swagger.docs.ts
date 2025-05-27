@@ -1,37 +1,37 @@
-import swaggerJsDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
-import express, { Application } from "express";
-import path from "path";
-import dotenv from "dotenv";
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import express, { Application } from 'express';
+import path from 'path';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const swaggerOptions: swaggerJsDoc.Options = {
   definition: {
-    openapi: "3.0.0",
+    openapi: '3.0.0',
     info: {
-      title: "Mitigasikita Application API",
-      summary: "Computer Vision base APP",
+      title: 'Mitigasikita Application API',
+      summary: 'Computer Vision base APP',
       description:
-        "A responsive web application developed to address the challenges of information gaps regarding earthquake and tsunami disasters in Indonesia.",
-      termsOfService: "https://example.com/terms/",
+        'A responsive web application developed to address the challenges of information gaps regarding earthquake and tsunami disasters in Indonesia.',
+      termsOfService: 'https://example.com/terms/',
       contact: {
-        name: "API Support",
-        url: "https://www.example.com/support",
-        email: "support@example.com",
+        name: 'API Support',
+        url: 'https://www.example.com/support',
+        email: 'support@example.com',
       },
       license: {
-        name: "Apache 2.0",
-        url: "https://www.apache.org/licenses/LICENSE-2.0.html",
+        name: 'Apache 2.0',
+        url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
       },
-      version: "1.0.1",
+      version: '1.0.1',
     },
     components: {
       securitySchemes: {
         bearerAuth: {
-          type: "http",
-          scheme: "bearer",
-          bearerFormat: "JWT",
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
         },
       },
     },
@@ -44,33 +44,33 @@ const swaggerOptions: swaggerJsDoc.Options = {
       {
         url:
           process.env.BASE_URL ||
-          "https://sec-prediction-app-backend.vercel.app",
+          'https://sec-prediction-app-backend.vercel.app',
       },
     ],
   },
-  apis: [path.join(__dirname, "../routes/*.ts")],
+  apis: [path.join(__dirname, '../routes/*.ts')],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 const setupSwagger = (app: Application): void => {
   app.use(
-    "/docs",
+    '/docs',
     swaggerUi.serve,
     swaggerUi.setup(swaggerDocs, {
       customCssUrl:
-        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
+        'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css',
     }),
   );
 
-  const swaggerDistPath = require("swagger-ui-dist").getAbsoluteFSPath();
-  app.use("/docs", express.static(swaggerDistPath));
+  const swaggerDistPath = require('swagger-ui-dist').getAbsoluteFSPath();
+  app.use('/docs', express.static(swaggerDistPath));
 
   swaggerUi.setup(swaggerDocs, {
     customCss:
-      ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
+      '.swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }',
     customCssUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css',
   });
 
   // const serverUrls = swaggerOptions.definition.servers?.map(

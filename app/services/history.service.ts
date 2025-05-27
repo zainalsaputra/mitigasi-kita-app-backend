@@ -1,5 +1,4 @@
-import * as historyRepository from '../repositories/hitory.repository';
-
+import * as historyRepository from '../repositories/history.repository';
 
 // class HistoryService {
 
