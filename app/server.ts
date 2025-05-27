@@ -21,6 +21,10 @@ setupSwagger(app);
 // app.use(routes);
 // app.use(errorHandler);
 
+import mainRoute from './routes/index.route';
+
+app.use('/api', mainRoute);
+
 const PORT: string = process.env.PORT || '3000';
 const HOST: string = process.env.HOST || '127.0.0.1';
 
