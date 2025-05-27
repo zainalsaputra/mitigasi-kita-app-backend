@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 import http from 'http';
-// import setupSwagger from './docs/swagger.docs';
+import setupSwagger from './docs/swagger.docs';
 // import routes from './routes/index';
 // import errorHandler from './middlewares/errorHandler';
 import dotenv from 'dotenv';
@@ -16,7 +16,7 @@ const server = http.createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// setupSwagger(app);
+setupSwagger(app);
 
 // app.use(routes);
 // app.use(errorHandler);
