@@ -1,5 +1,6 @@
 import postgres from '../config/postgres.config';
 import bcrypt from 'bcrypt';
+import createError from 'http-errors';
 import { signToken } from '../utils/jwt';
 
 export const registerUser = async (payload: any) => {
@@ -8,7 +9,10 @@ export const registerUser = async (payload: any) => {
             email: payload.email
         }
     });
-    if (existing) throw new Error('Email sudah terdaftar');
+
+    if (existing) {
+        throw new createError.Conflict('Email already in use');
+    }
 
     const hashed = await bcrypt.hash(payload.password, 10);
     const { password, ...rest } = payload;
@@ -29,7 +33,7 @@ export const loginUser = async (payload: any) => {
 
     const isValid = user && await bcrypt.compare(payload.password, user.password);
     if (!isValid) {
-        throw new Error('Email atau password salah');
+         throw new createError.Unauthorized('Invalid email or password');
     }
 
     const token = signToken({

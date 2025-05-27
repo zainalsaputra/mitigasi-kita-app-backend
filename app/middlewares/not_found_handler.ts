@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
+import createError from 'http-errors';
 
-export const notFound = (req: Request, res: Response, next: NextFunction) => {
-  res.status(404).json({ message: `Route ${req.originalUrl} not found` });
+export const notFound = (req: Request, _res: Response, next: NextFunction) => {
+  next(createError(404, `Route ${req.originalUrl} not found`));
 };
