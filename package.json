@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zainalsaputra/miigasikita-app-backend.git"
+    "url": "git+https://github.com/zainalsaputra/mitigasikita-app-backend.git"
   },
   "keywords": [
     "-"
@@ -23,12 +23,15 @@
   "author": "Zainal Saputra",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zainalsaputra/miigasikita-app-backend/issues"
+    "url": "https://github.com/zainalsaputra/mitigasikita-app-backend/issues"
   },
-  "homepage": "https://github.com/zainalsaputra/miigasikita-app-backend#readme",
+  "homepage": "https://github.com/zainalsaputra/mitigasikita-app-backend#readme",
   "devDependencies": {
     "@eslint/js": "^9.27.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.18",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
@@ -47,7 +50,11 @@
   },
   "dependencies": {
     "@prisma/client": "^6.8.2",
+    "bcrypt": "^6.0.0",
     "express-async-errors": "^3.1.1",
+    "express-rate-limit": "^7.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "zod": "^3.25.30"

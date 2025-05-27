@@ -23,11 +23,15 @@ import mainRoute from './routes/index.route';
 
 app.use('/api', mainRoute);
 
-import { errorHandler } from './middleware/error_handler';
-import { notFound } from './middleware/not_found_handler';
+import { errorHandler } from './middlewares/error_handler';
+import { notFound } from './middlewares/not_found_handler';
 
 app.use(errorHandler);
 app.use(notFound);
+
+import morgan from 'morgan';
+
+app.use(morgan('dev')); // or 'combined' for detailed logs
 
 const PORT: string = process.env.PORT || '3000';
 const HOST: string = process.env.HOST || '127.0.0.1';

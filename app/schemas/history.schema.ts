@@ -17,4 +17,4 @@ export const historySchema = z.object({
   windspeed_10m_max: z.number(),
   precipitation_sum: z.number(),
   status: z.string(),
-});
+}).strict();;

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { postHistory } from '../controllers/history.controller';
-import { validate } from '../middleware/validate';
-import { historySchema } from '../validators/history.validator';
+import { validate } from '../middlewares/validate';
+import { historySchema } from '../schemas/history.schema';
 
 const router = Router();
 
