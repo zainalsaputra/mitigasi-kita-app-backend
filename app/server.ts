@@ -29,8 +29,10 @@ app.use(express.urlencoded({ extended: true }));
 
 setupSwagger(app);
 
+import welcomeRoute from './routes/welcome.route';
 import mainRoute from './routes/index.route';
 
+app.use('/', welcomeRoute);
 app.use('/api', mainRoute);
 
 import { errorHandler } from './middlewares/error_handler';
