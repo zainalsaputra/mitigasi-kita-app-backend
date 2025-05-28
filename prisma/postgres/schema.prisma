@@ -36,13 +36,13 @@ model History {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  role      Role     @default(USER)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String         @id @default(uuid())
+  name         String
+  email        String         @unique
+  password     String
+  role         Role           @default(USER)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
   RefreshToken RefreshToken[]
 }
 
@@ -55,7 +55,7 @@ model RefreshToken {
   id        String   @id @default(uuid())
   token     String   @unique
   user      User     @relation(fields: [userId], references: [id])
-  userId    String
+  userId    String   @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
 }

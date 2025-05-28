@@ -37,7 +37,7 @@ export const errorHandler = (
   err: HttpError,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   const status = err.status || 500;
   const message = err.message || 'Internal Server Error';
