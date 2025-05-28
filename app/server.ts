@@ -1,0 +1,67 @@
+import express, { Application } from 'express';
+import cors from 'cors';
+import http from 'http';
+import setupSwagger from './docs/swagger.docs';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+import {
+  connectToPostgres,
+  disconnectPostgres,
+} from './config/postgres.config';
+import { connectToMongo, disconnectMongo } from './config/mongo.config';
+
+const app: Application = express();
+const server = http.createServer(app);
+
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }),
+);
+
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+setupSwagger(app);
+
+import mainRoute from './routes/index.route';
+
+app.use('/api', mainRoute);
+
+import { errorHandler } from './middlewares/error_handler';
+import { notFound } from './middlewares/not_found_handler';
+
+app.use(errorHandler);
+app.use(notFound);
+
+import morgan from 'morgan';
+
+app.use(morgan('dev')); // or 'combined' for detailed logs
+
+const PORT: string = process.env.PORT || '3000';
+const HOST: string = process.env.HOST || '127.0.0.1';
+
+server.listen(PORT, async () => {
+  console.log(`Server is running at http://${HOST}:${PORT}`);
+
+  await connectToPostgres();
+  await connectToMongo();
+});
+
+// Graceful shutdown
+const shutdown = async () => {
+  console.log('\n Shutting down server...');
+  await disconnectPostgres();
+  await disconnectMongo();
+  process.exit(0);
+};
+
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
+
+export default app;
