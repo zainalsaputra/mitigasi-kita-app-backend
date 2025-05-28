@@ -1,4 +1,5 @@
 import express, { Application } from 'express';
+import cors from 'cors';
 import http from 'http';
 import setupSwagger from './docs/swagger.docs';
 import dotenv from 'dotenv';
@@ -14,7 +15,16 @@ import { connectToMongo, disconnectMongo } from './config/mongo.config';
 const app: Application = express();
 const server = http.createServer(app);
 
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }),
+);
+
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 setupSwagger(app);

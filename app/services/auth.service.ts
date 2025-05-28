@@ -5,6 +5,7 @@ import {
   generateAccessToken,
   generateRefreshToken,
   verifyRefreshToken,
+  decodeToken,
 } from '../utils/jwt';
 
 export const registerUser = async (payload: any) => {
@@ -87,13 +88,15 @@ export const loginUser = async (payload: any) => {
   }
 };
 
-export const refreshTokenize = async (payload: any, cookies: any) => {
+export const refreshTokenize = async (payload: any) => {
   try {
-    const token = cookies?.refreshToken;
-    if (!token) throw new createError.Unauthorized('Unauthorized');
+    const token = decodeToken(payload.refreshToken);
+    if (!token || typeof token === 'string' || !('email' in token)) {
+      throw new createError.Unauthorized('Unauthorized');
+    }
 
-    const storedToken = await postgres.user.findUnique({
-      where: { email: payload.email },
+    const storedToken = await postgres.user.findFirst({
+      where: { email: token.email },
       select: {
         RefreshToken: {
           select: {

@@ -14,3 +14,9 @@ export const loginSchema = z
     password: z.string().min(6),
   })
   .strict();
+
+export const refreshTokenSchema = z
+  .object({
+    refreshToken: z.string(),
+  })
+  .strict();

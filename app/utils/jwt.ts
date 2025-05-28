@@ -13,3 +13,5 @@ export const verifyToken = (token: string) => jwt.verify(token, JWT_SECRET);
 
 export const verifyRefreshToken = (token: string) =>
   jwt.verify(token, REFRESH_SECRET);
+
+export const decodeToken = (token: string) => jwt.decode(token);

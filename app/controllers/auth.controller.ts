@@ -37,9 +37,8 @@ export const refreshToken = async (
   next: NextFunction,
 ) => {
   try {
-    const result = await refreshTokenize(req.body, req.cookies);
-
-    res.status(200).json({ accessToken: result });
+    const result = await refreshTokenize(req.body);
+    res.status(200).json(result);
   } catch (err: any) {
     next(err);
   }
