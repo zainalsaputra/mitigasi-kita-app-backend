@@ -49,7 +49,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
     ],
   },
   // apis: [path.join(__dirname, '../routes/*.ts')],
-  apis: [path.join(__dirname, '../docs/auth.swagger.yaml')],
+  apis: [path.join(__dirname, '../docs/auth.swagger.yaml'), path.join(__dirname, '../docs/history.swagger.yaml')],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
