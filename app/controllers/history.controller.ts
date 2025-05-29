@@ -1,31 +1,53 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import * as historyService from '../services/history.service';
 
-// class HistoryController {
-//   static async postHistory(req: Request, res: Response): Promise<Response> {
-//     try {
-//       const data = req.body;
-//       const history = await historyService.createHistory(data);
-//       return res.status(201).json(history);
-//     } catch (error) {
-//       console.error('Error creating history:', error);
-//       return res.status(500).json({ message: 'Internal Server Error' });
-//     }
-//   }
-// }
-
-// export default HistoryController;
+// Extend Express Request interface to include 'user'
+interface AuthenticatedRequest extends Request {
+  user: {
+    userId: string;
+    [key: string]: any;
+  };
+}
 
 export const postHistory = async (
-  req: Request,
+  req: AuthenticatedRequest,
   res: Response,
-): Promise<void> => {
+  next: NextFunction,
+) => {
   try {
-    const data = req.body;
-    // const savedHistory = await historyService.addHistory(data);
+    const userId = req.user.userId;
+    const data = { userId, ...req.body};
+    const savedHistory = await historyService.addUserHistory(data);
     res.status(201).json(data);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    next(error);
   }
 };
+
+// export const getHistory = async (
+//   req: Request,
+//   res: Response,
+// ): Promise<void> => {
+//   try {
+//     const data = req.body;
+//     const savedHistory = await historyService.getAllHistory(data);
+//     res.status(201).json(savedHistory);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// };
+
+// export const deleteHistory = async (
+//   req: Request,
+//   res: Response,
+// ): Promise<void> => {
+//   try {
+//     const data = req.body;
+//     const savedHistory = await historyService.addHistory(data);
+//     res.status(201).json(savedHistory);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// };

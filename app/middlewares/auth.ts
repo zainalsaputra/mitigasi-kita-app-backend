@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import createError from 'http-errors';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret';
+const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 
 export interface AuthRequest extends Request {
   user?: string | JwtPayload;
