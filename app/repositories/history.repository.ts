@@ -6,7 +6,7 @@ export const createUserHistory = async (data: any) => {
   });
 };
 
-export const getAllUsersHistory = async (userId: any) => {
+export const getAllHistoryByUserId = async (userId: any) => {
   return postgres.history.findMany({
     where: {
       userId,

@@ -43,7 +43,7 @@ model RefreshToken {
 model History {
   id                 String   @id @default(uuid())
   user               User     @relation(fields: [userId], references: [id])
-  userId             String   @unique
+  userId             String   
   location           String
   city               String
   agency             String

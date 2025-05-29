@@ -39,7 +39,7 @@ export const errorHandler = (
   res: Response,
   next: NextFunction,
 ) => {
-  console.error('Error caught:', err); // error dev console
+  // console.error('Error caught:', err); // error dev console
 
   const status = err.status || 500;
   const message = err.message || 'Internal Server Error';
