@@ -1,13 +1,46 @@
-import { createUserHistory, getAllHistoryByUserId, deleteHistoryById } from '../repositories/history.repository'
+import createError from 'http-errors';
+import * as historyRepository from '../repositories/history.repository';
 
 export const addUserHistory = async (payload: any) => {
-  return await createUserHistory(payload);
+  if (!payload.userId) {
+    throw createError.BadRequest('User ID is required');
+  }
+
+  const savedHistory = await historyRepository.createUserHistory(payload);
+  if (!savedHistory) {
+    throw createError.InternalServerError('Failed to create history');
+  }
+
+  return savedHistory;
 };
 
 export const getAllHistory = async (userId: any) => {
-  return await getAllHistoryByUserId(userId);
+  if (!userId) {
+    throw createError.BadRequest('User ID is required');
+  }
+
+  const result = await historyRepository.getAllHistoryByUserId(userId);
+  if (!result || result.length === 0) {
+    throw createError.NotFound('User does not have history');
+  }
+
+  return result;
 };
 
 export const removeHistoryById = async (id: any) => {
-  return await deleteHistoryById(id);
+  if (!id) {
+    throw createError.BadRequest('History ID is required');
+  }
+
+  const history = await historyRepository.findHistoryById(id);
+  if (!history) {
+    throw createError.NotFound('History ID not found');
+  }
+
+  const result = await historyRepository.deleteHistoryById(id);
+  if (!result) {
+    throw createError.NotFound('Failed to delete history');
+  }
+
+  return result;
 };

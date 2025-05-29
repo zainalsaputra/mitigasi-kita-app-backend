@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import createError from 'http-errors';
 import * as historyService from '../services/history.service';
+import { sendResponse } from '../utils/response_helper';
 
 interface AuthenticatedRequest extends Request {
   user: {
@@ -8,6 +8,7 @@ interface AuthenticatedRequest extends Request {
     [key: string]: any;
   };
 }
+
 export const postHistory = async (
   req: AuthenticatedRequest,
   res: Response,
@@ -15,20 +16,13 @@ export const postHistory = async (
 ): Promise<void> => {
   try {
     const userId = req.user?.userId;
-    if (!userId) {
-      return next(createError.BadRequest('User ID is required'));
-    }
-
     const data = { userId, ...req.body };
-    const savedHistory = await historyService.addUserHistory(data);
-    if (!savedHistory) {
-      return next(createError.InternalServerError('Failed to create history'));
-    }
 
-    res.status(201).json(savedHistory);
+    const result = await historyService.addUserHistory(data);
+    sendResponse(res, 201, result, 'History has created successfully!');
   } catch (error) {
     console.error('Error caught:', error);
-    next(createError.InternalServerError('An unexpected error occurred'));
+    next(error);
   }
 };
 
@@ -39,20 +33,12 @@ export const getHistory = async (
 ): Promise<void> => {
   try {
     const userId = req.user.userId;
-    if (!userId) {
-      return next(createError.BadRequest('User ID is required'));
-
-    }
 
     const result = await historyService.getAllHistory(userId);
-    if (!result || result.length === 0) {
-      return next(createError.NotFound('User does not have history'));
-    }
-
-    res.status(200).json(result);
+    sendResponse(res, 200, result);
   } catch (error) {
     console.error('Error caught:', error);
-    next(createError.InternalServerError('An unexpected error occurred'));
+    next(error);
   }
 };
 
@@ -63,16 +49,11 @@ export const deleteHistory = async (
 ): Promise<void> => {
   try {
     const id = req.params.id;
-    if (!id) {
-      return next(createError.BadRequest('History ID is required'));
-    }
+
     const result = await historyService.removeHistoryById(id);
-    if (!result) {
-      return next(createError.InternalServerError('Failed to create history'));
-    }
-    res.status(201).json(result);
+    sendResponse(res, 200, result, 'History has deleted successfully!');
   } catch (error) {
     console.error('Error caught:', error);
-    next(createError.InternalServerError('An unexpected error occurred'));
+    next(error);
   }
 };
