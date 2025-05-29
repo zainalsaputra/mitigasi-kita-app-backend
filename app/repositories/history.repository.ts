@@ -14,3 +14,10 @@ export const getAllHistoryByUserId = async (userId: any) => {
   });
 };
 
+export const deleteHistoryById = async (id: any) => {
+  return postgres.history.delete({
+    where:{
+      id,
+    }
+  })
+}

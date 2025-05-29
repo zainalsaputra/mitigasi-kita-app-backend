@@ -10,6 +10,6 @@ router.post('/', authenticate, validate(historySchema), historyController.postHi
 
 router.get('/', authenticate, historyController.getHistory as RequestHandler);
 
-router.delete('/')
+router.delete('/', authenticate, historyController.deleteHistory);
 
 export default router;
