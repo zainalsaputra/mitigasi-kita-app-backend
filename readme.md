@@ -27,6 +27,7 @@
 - ZOD
 - Morgan
 - Winston
+- winston-mongodb
 - helmet
 - body-parser
 - cookie-parser

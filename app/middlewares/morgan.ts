@@ -1,7 +1,7 @@
 import { createWriteStream } from 'fs';
 import morgan from 'morgan';
 import path from 'path';
-import { validateEnv } from '../config/env.config';
+import { validateEnv } from '../config/env_validate';
 
 const nodeEnv = validateEnv()?.env;
 // const nodeEnv = process.env.NODE_ENV;

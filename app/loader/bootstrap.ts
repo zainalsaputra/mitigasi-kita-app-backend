@@ -1,7 +1,7 @@
 import { bootstrapExpress } from './app';
-import { logger } from '../middlewares/logger';
-import { validateEnv } from '../config/env.config';
-import { connectToMongo } from '../config/mongo.config';
+import { logger } from '../utils/logger';
+import { validateEnv } from '../config/env_validate';
+import { connectToMongo } from '../config/databases/mongo';
 
 export const bootstrap = async (app: any) => {
   validateEnv();

@@ -17,11 +17,12 @@ dotenv.config();
 // Middleware configurations
 import { errorHandler } from '../middlewares/error_handler';
 import { notFound } from '../middlewares/not_found_handler';
-import { corsOptions } from '../middlewares/cors_options';
+import { corsOptions } from '../config/cors_options';
 import {
   morganErrorHandler,
   morganSuccessHandler,
 } from '../middlewares/morgan';
+import { activityLogger } from '../middlewares/log_activity';
 
 // Swagger documentation setup
 import setupSwagger from '../docs/swagger.docs';
@@ -51,6 +52,9 @@ export const bootstrapExpress = (app: any) => {
       },
     }),
   );
+
+  // Success Activity Logger
+  app.use(activityLogger)
 
   // Error hanlder logs
   app.use(morganErrorHandler);

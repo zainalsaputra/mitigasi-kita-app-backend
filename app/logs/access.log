@@ -1,3 +1,19 @@
  GET /api/history 401 17.420 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:00:14 GMT 
  POST /api/auth/login 200 1404.128 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:04:08 GMT
  GET /api/history 200 25.896 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:04:18 GMT
+ GET /api/history 200 230.518 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:49:50 GMT
+ GET /api/history 401 7.405 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:50:29 GMT 
+ GET /api/history 401 1.200 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:52:54 GMT 
+ GET /api/history 401 10.682 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 15:03:55 GMT 
+ GET /api/history 401 13.716 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 15:07:33 GMT 
+ GET /api/history 401 15.410 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:03:23 GMT 
+ GET /api/history 401 12.820 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:04:19 GMT 
+ GET /api/history 401 9.319 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:07:49 GMT 
+ GET /api/history 200 202.711 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:09:36 GMT
+ GET /api/history 200 73.251 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:10:10 GMT
+ GET /api/history 200 76.448 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:15:35 GMT
+ POST /api/auth/login 200 602.505 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:19:05 GMT
+ POST /api/history 401 7.634 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:19:28 GMT 
+ POST /api/history 201 27.800 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:19:32 GMT
+ GET /api/history 200 5.936 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:19:46 GMT
+ DELETE /api/history/ccbdf7d6-a456-4765-a7b1-6c838e88677d 200 8.689 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:20:04 GMT

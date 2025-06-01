@@ -1,4 +1,4 @@
-import { PrismaClient } from '../../generated/postgres';
+import { PrismaClient } from '../../../generated/postgres';
 
 const postgres = new PrismaClient();
 
