@@ -1,21 +1,17 @@
-# DBS CAMP CAPSTONE - MITIGASIKITA APPLICATION API
+# MITIGASIKITA APPLICATION API
 
-- **Framework:** Express.Js
-- **Programming Language:** Typescript
-- **Node Version:** 22.15.1
-- **RDBMS:** PostgreSQL
-- **DBMS:** MongoDB
-- **Architecture:** RESTful API
-- **Patern:** Layered Architecture
-- **Model AI Server:** Python with FastAPI
+- **Framework**: Express.js
+- **Language**: TypeScript
+- **Package Manager**: NPM v10.9.2
+- **Node Version**: 22.15.1 LTS
+- **Architecture**: RESTful API
+- **Design Pattern**: Layered Architecture
+- **Database**: PostgreSQL & MongoDB
+- **ORM**: Prisma Client
 
-## **Production API URLs**
+## Production URL [AWS]
 
-- **[Takedown] Primary API Server (AWS EC2):**  
-   [....](....)
-  s
-- **Backup API Server (Vercel Deployment):**  
-  [....](....) - bug documentation interface on vercel
+- [](upcoming)
 
 ## **Tools**
 
@@ -30,8 +26,10 @@
 - dotenv
 - ZOD
 - Morgan
-- Socket.io
-- Helmet (Request security)
+- Winston
+- helmet
+- body-parser
+- cookie-parser
 - express-rate-limit
 - jsonwebtoken (JWT)
 - bcryptjs
@@ -39,45 +37,74 @@
 - Nginx (Reverse Proxy)
 - Certbot (SSL/TLS HTTPS)
 - Crontab (Auto SSL Renewal)
-- Nodemailer (SMTP Email Service)
 
 ### **AI Server**
 
-- TensorFlow
-- FastAPI (with integrated Swagger documentation)
-- Firebase
+-
 
 ### **RDBMS Cloud Server**
 
-- Neon Tech
+-
 
 ### **Deployment Infrastructure (AWS)**
 
-- **AWS EC2**
-- **AWS Route53**
-- **Nginx**
-- **Node.js v20.10.0**
-- **PM2**
-- **Certbot**
-- **Crontab**
-- **PostgreSQL Database Hosted on Neon Tech**
-- **Cloudinary for Image Storage**
+-
 
 ## **Features**
 
 ### **Authentication & Authorizations**
 
-- Register
-- Login with JWT Authentication
-- Refresh Token for Secure Sessions
-- Role-Based Access Control (RBAC)
-- Middleware for Authentication & Authorization
-- Rate Limiting and Security Headers (Helmet)
+-
 
-## **RDMS Extension**
+### **Activity Log**
+
+-
+
+## **Application History**
+
+-
+
+## **PostgreSql Extension**
 
 - uuid-ossp
 
+## **Database Management**
+
+-
+
 ## **Todo (Next Milestones)**
 
-- ALL
+-
+
+### Steps to Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/zainalsaputra/mitigasi-kita-app-backend
+cd mitigasi-kita-app-backend
+
+# 2. Install all dependencies
+npm install
+
+# 3. Create and configure the environment variables
+cp .env.example .env
+# → Edit .env file to match your database and JWT configurations
+
+# 4. Generate the Prisma client
+npx prisma generate
+
+# 5. Run the database migrations
+npx prisma migrate dev --name init
+
+# 6. Run development server
+npm run start
+
+---
+
+## ❓ FAQ
+
+**Q: Aplikasi tidak connect ke DB?**
+A: Periksa `.env` → pastikan configurasi database (PostgreSql & MongoDB) sesuai dengan yang anda gunakan.
+
+---
+```

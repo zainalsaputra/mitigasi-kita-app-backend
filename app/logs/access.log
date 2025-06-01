@@ -1,0 +1,3 @@
+ GET /api/history 401 17.420 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:00:14 GMT 
+ POST /api/auth/login 200 1404.128 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:04:08 GMT
+ GET /api/history 200 25.896 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 14:04:18 GMT

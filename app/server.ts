@@ -1,69 +1,52 @@
-import express, { Application } from 'express';
-import cors from 'cors';
-import http from 'http';
-import setupSwagger from './docs/swagger.docs';
-import dotenv from 'dotenv';
+import express, { Express } from 'express';
+import { Server, createServer } from 'http';
+import { logger } from './middlewares/logger';
+import { validateEnv } from './config/env.config';
+import mongoose from 'mongoose';
+import { bootstrap } from './loader/bootstrap';
 
-dotenv.config();
-
-import {
-  connectToPostgres,
-  disconnectPostgres,
-} from './config/postgres.config';
-import { connectToMongo, disconnectMongo } from './config/mongo.config';
-
-const app: Application = express();
-const server = http.createServer(app);
-
-app.use(
-  cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }),
-);
-
-app.use(express.json());
-
-app.use(express.urlencoded({ extended: true }));
-
-setupSwagger(app);
-
-import welcomeRoute from './routes/welcome.route';
-import mainRoute from './routes/index.route';
-
-app.use('/', welcomeRoute);
-app.use('/api', mainRoute);
-
-import { errorHandler } from './middlewares/error_handler';
-import { notFound } from './middlewares/not_found_handler';
-
-app.use(errorHandler);
-app.use(notFound);
-
-import morgan from 'morgan';
-
-app.use(morgan('dev')); // or 'combined' for detailed logs
-
-const PORT: string = process.env.PORT || '3000';
-const HOST: string = process.env.HOST || '127.0.0.1';
-
-server.listen(PORT, async () => {
-  console.log(`Server is running at http://${HOST}:${PORT}`);
-
-  await connectToPostgres();
-  await connectToMongo();
-});
-
-// Graceful shutdown
-const shutdown = async () => {
-  console.log('\n Shutting down server...');
-  await disconnectPostgres();
-  await disconnectMongo();
-  process.exit(0);
+const exitHandler = (server: Server | null) => {
+  if (server) {
+    server.close(async () => {
+      logger.info('Server closed');
+      process.exit(1);
+    });
+  } else {
+    process.exit(1);
+  }
 };
 
-process.on('SIGINT', shutdown);
-process.on('SIGTERM', shutdown);
+const unExpectedErrorHandler = (server: Server) => {
+  return function (error: Error) {
+    logger.error(error);
+    exitHandler(server);
+  };
+};
 
-export default app;
+const startServer = async () => {
+  const app: Express = express();
+  await bootstrap(app);
+
+  const httpServer = createServer(app);
+  const port = validateEnv().port;
+  //   const port = process.env.PORT || 5000;
+
+  const server: Server = httpServer.listen(port, () => {
+    logger.info(`server listening on port ${port}`);
+  });
+
+  process.on('uncaughtException', unExpectedErrorHandler(server));
+  process.on('unhandledRejection', unExpectedErrorHandler(server));
+  process.on('SIGTERM', () => {
+    logger.info('SIGTERM recieved');
+    if (server) {
+      server.close();
+    }
+  });
+
+  mongoose.connection.on('error', (err) => {
+    console.log(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`);
+  });
+};
+
+startServer();

@@ -1,6 +1,6 @@
 import { Router, RequestHandler } from 'express';
 import { validate } from '../middlewares/validate';
-import { historySchema } from '../schemas/history.schema';
+import { historySchema } from '../validations/history.validation';
 import { authenticate } from '../middlewares/auth';
 import * as historyController from '../controllers/history.controller';
 

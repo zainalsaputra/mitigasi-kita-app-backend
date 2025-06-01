@@ -13,22 +13,22 @@ paths:
             schema:
               $ref: '#/components/schemas/HistoryInput'
             example:
-              location: "Laut Flores"
-              city: "Makassar"
-              agency: "BMKG"
-              mag_type: "Mw"
+              location: 'Laut Flores'
+              city: 'Makassar'
+              agency: 'BMKG'
+              mag_type: 'Mw'
               magnitude: 5.3
               depth: 33.2
               azimuth_gap: 118
               phasecount: 70
-              potensi_tsunami: "Sedang"
+              potensi_tsunami: 'Sedang'
               latitude: -5.152
               longitude: 120.432
               temperature_2m_min: 24.8
               temperature_2m_max: 30.1
               windspeed_10m_max: 19.5
               precipitation_sum: 12.3
-              status: "Siaga"
+              status: 'Siaga'
       responses:
         '201':
           description: History created successfully
