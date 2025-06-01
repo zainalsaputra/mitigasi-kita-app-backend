@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import * as historyService from '../services/history.service';
 import { sendResponse } from '../utils/response_helper';
+// import { logActivity } from '../middlewares/log_activity';
 
 interface AuthenticatedRequest extends Request {
   user: {
-    userId: string;
+    id: string;
     [key: string]: any;
   };
 }
@@ -15,7 +16,7 @@ export const postHistory = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const userId = req.user?.userId;
+    const userId = req.user?.id;
     const data = { userId, ...req.body };
 
     const result = await historyService.addUserHistory(data);
@@ -32,9 +33,19 @@ export const getHistory = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user.id;
 
     const result = await historyService.getAllHistory(userId);
+
+    // logActivity({
+    //   userId: req.user?.id,
+    //   action: 'DELETE_HISTORY',
+    //   method: req.method,
+    //   url: req.originalUrl,
+    //   status: 200,
+    //   message: `GET all users history`
+    // });
+
     sendResponse(res, 200, result);
   } catch (error) {
     console.error('Error caught:', error);

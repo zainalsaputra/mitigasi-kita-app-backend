@@ -5,7 +5,7 @@ import {
   loginSchema,
   registerSchema,
   refreshTokenSchema,
-} from '../schemas/auth.schema';
+} from '../validations/auth.validation';
 
 const router = Router();
 

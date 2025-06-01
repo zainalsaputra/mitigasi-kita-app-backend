@@ -1,4 +1,4 @@
-import postgres from '../config/postgres.config';
+import postgres from '../config/databases/postgres';
 import bcrypt from 'bcrypt';
 import createError from 'http-errors';
 import {
@@ -25,12 +25,12 @@ export const registerUser = async (payload: any) => {
     });
 
     const accessToken = generateAccessToken({
-      userId: user.id,
+      id: user.id,
       email: user.email,
       role: user.role,
     });
     const refreshToken = generateRefreshToken({
-      userId: user.id,
+      id: user.id,
       email: user.email,
     });
 
@@ -65,12 +65,12 @@ export const loginUser = async (payload: any) => {
     }
 
     const accessToken = generateAccessToken({
-      userId: user.id,
+      id: user.id,
       email: user.email,
       role: user.role,
     });
     const refreshToken = generateRefreshToken({
-      userId: user.id,
+      id: user.id,
       email: user.email,
     });
 
@@ -124,17 +124,17 @@ export const refreshTokenize = async (payload: any) => {
       throw new createError.Unauthorized('Invalid refresh token');
 
     const newAccessToken = generateAccessToken({
-      userId: decoded.userId,
+      id: decoded.id,
       email: decoded.email,
     });
 
     const newRefreshToken = generateRefreshToken({
-      userId: decoded.userId,
+      id: decoded.id,
       email: decoded.email,
     });
 
     await postgres.refreshToken.update({
-      where: { userId: decoded.userId },
+      where: { userId: decoded.id },
       data: {
         token: newRefreshToken,
         expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),

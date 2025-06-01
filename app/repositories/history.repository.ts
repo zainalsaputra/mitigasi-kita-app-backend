@@ -1,4 +1,4 @@
-import postgres from '../config/postgres.config';
+import postgres from '../config/databases/postgres';
 
 export const createUserHistory = async (data: any) => {
   return postgres.history.create({
