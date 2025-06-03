@@ -15,6 +15,8 @@ router.post(
 
 router.get('/', authenticate, historyController.getHistory as RequestHandler);
 
+router.get('/:id', authenticate, historyController.getHistoryById);
+
 router.delete('/:id', authenticate, historyController.deleteHistory);
 
 export default router;

@@ -1,9 +1,13 @@
 import cors from 'cors';
+
+const productionUrl = process.env.PRODUCTION_URL || 'http://localhost:3000';
+
 const allowedOrigins: string[] = [
   'http://localhost:3000/',
   'http://localhost:3001/',
   'http://localhost:3002/',
   'http://localhost:3003/',
+  productionUrl,
 ];
 
 export const corsOptions: cors.CorsOptions = {

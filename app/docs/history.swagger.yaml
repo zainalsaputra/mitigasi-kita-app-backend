@@ -60,6 +60,27 @@ paths:
           description: Unauthorized
 
   /api/history/{id}:
+    get:
+      tags:
+        - History
+      summary: Get detail history by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: History ID
+      responses:
+        '200':
+          description: Fetched detail history successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: History not found
+
     delete:
       tags:
         - History
