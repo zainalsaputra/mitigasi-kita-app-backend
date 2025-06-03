@@ -53,6 +53,22 @@ export const getHistory = async (
   }
 };
 
+export const getHistoryById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    const id = req.params.id;
+
+    const result = await historyService.getHistoryById(id);
+    sendResponse(res, 200, result);
+  } catch (error) {
+    console.error('Error caught:', error);
+    next(error);
+  }
+};
+
 export const deleteHistory = async (
   req: Request,
   res: Response,

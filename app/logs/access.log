@@ -17,3 +17,20 @@
  POST /api/history 201 27.800 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:19:32 GMT
  GET /api/history 200 5.936 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:19:46 GMT
  DELETE /api/history/ccbdf7d6-a456-4765-a7b1-6c838e88677d 200 8.689 ms PostmanRuntime/7.44.0 Sun, 01 Jun 2025 17:20:04 GMT
+ POST /api/history 401 573.370 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 08:11:04 GMT 
+ POST /api/history 401 3.103 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 08:11:08 GMT 
+ POST /api/auth/login 200 1147.186 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 08:11:29 GMT
+ POST /api/history 201 380.506 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 08:12:39 GMT
+ POST /predict 404 2.962 ms Thunder Client (https://www.thunderclient.com) Tue, 03 Jun 2025 08:13:22 GMT 
+ POST /predict 404 2.517 ms Thunder Client (https://www.thunderclient.com) Tue, 03 Jun 2025 08:13:23 GMT 
+ POST /predict 404 1.575 ms Thunder Client (https://www.thunderclient.com) Tue, 03 Jun 2025 08:13:26 GMT 
+ POST /api/history 400 6.460 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 08:15:44 GMT 
+ POST /api/history 201 382.111 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 08:22:33 GMT
+ POST /api/history 201 170.943 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 13:47:19 GMT
+ POST /api/history 201 94.739 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 13:51:46 GMT
+ DELETE /api/history/d728a48-06f3-431a-8efb-f8dabfed5af8 404 17.574 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 13:52:22 GMT 
+ DELETE /api/history/bd728a48-06f3-431a-8efb-f8dabfed5af8 200 616.397 ms PostmanRuntime/7.39.1 Tue, 03 Jun 2025 13:52:38 GMT
+ GET /api/history 401 17.566 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:38:40 GMT 
+ POST /api/auth/login 200 136.555 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:38:57 GMT
+ GET /api/history 200 171.857 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:39:26 GMT
+ GET /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 200 6.852 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:39:47 GMT

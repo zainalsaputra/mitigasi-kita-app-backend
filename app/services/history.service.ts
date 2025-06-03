@@ -27,6 +27,17 @@ export const getAllHistory = async (userId: any) => {
   return result;
 };
 
+export const getHistoryById = async (id: any) => {
+  if (!id) {
+    throw createError.BadRequest('History ID is required');
+  }
+  const history = await historyRepository.findHistoryById(id);
+  if (!history) {
+    throw createError.NotFound('History ID not found');
+  }
+  return history;
+};
+
 export const removeHistoryById = async (id: any) => {
   if (!id) {
     throw createError.BadRequest('History ID is required');
