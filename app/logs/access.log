@@ -34,3 +34,23 @@
  POST /api/auth/login 200 136.555 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:38:57 GMT
  GET /api/history 200 171.857 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:39:26 GMT
  GET /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 200 6.852 ms PostmanRuntime/7.44.0 Tue, 03 Jun 2025 14:39:47 GMT
+ GET /docs/ 200 24.797 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:22 GMT
+ GET /docs/swagger-ui-init.js 200 2.895 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:22 GMT
+ GET /docs/swagger-ui-standalone-preset.js 200 9.887 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:22 GMT
+ GET /docs/swagger-ui-bundle.js 200 18.634 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:22 GMT
+ GET /docs/swagger-ui.css 200 94.522 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:22 GMT
+ GET /docs/favicon-32x32.png 200 7.326 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:23 GMT
+ GET /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 401 9.342 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:48:50 GMT 
+ GET /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 200 21.293 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:49:10 GMT
+ DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 500 2.616 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:49:30 GMT 
+ DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 500 1.618 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:49:48 GMT 
+ GET /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 304 28.414 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:50:59 GMT
+ DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 500 8.070 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:51:02 GMT 
+ DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 200 28.416 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:55:10 GMT
+ GET /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 404 27.406 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:55:23 GMT 
+ GET /api/history 200 27.144 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:55:39 GMT
+ GET /api/history/94aa1a8c-4299-4c8b-9632-432d9bf99ff4 200 4.120 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:55:53 GMT
+ DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7138bf 404 8.120 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:02 GMT 
+ DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7194aa1a8c-4299-4c8b-9632-432d9bf99ff438bf 404 26.914 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:06 GMT 
+ DELETE /api/history/94aa1a8c-4299-4c8b-9632-432d9bf99ff4 200 20.692 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:10 GMT
+ DELETE /api/history/94aa1a8c-4299-4c8b-9632-432d9bf99ff4 404 20.457 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:20 GMT 
