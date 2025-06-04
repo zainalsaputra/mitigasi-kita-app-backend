@@ -39,7 +39,9 @@ export const errorHandler = (
   res: Response,
   next: NextFunction,
 ) => {
-  // console.error('Error caught:', err); // error dev console
+  if (process.env.NODE_ENV !== 'production') {
+    console.error('Error caught:', err);
+  }
 
   const status = err.status || 500;
   const message = err.message || 'Internal Server Error';

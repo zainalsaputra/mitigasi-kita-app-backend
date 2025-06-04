@@ -54,3 +54,9 @@
  DELETE /api/history/47f0ef57-d3d4-4cbb-915b-bca5ce7194aa1a8c-4299-4c8b-9632-432d9bf99ff438bf 404 26.914 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:06 GMT 
  DELETE /api/history/94aa1a8c-4299-4c8b-9632-432d9bf99ff4 200 20.692 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:10 GMT
  DELETE /api/history/94aa1a8c-4299-4c8b-9632-432d9bf99ff4 404 20.457 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Tue, 03 Jun 2025 14:56:20 GMT 
+ POST /api/auth/login 200 613.335 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:01:21 GMT
+ POST /api/history 401 7.084 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:01:49 GMT 
+ POST /api/history 401 28.146 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:04:19 GMT 
+::1 -  POST /api/history 401 24.442 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:04:58 GMT 
+::1 -  POST /api/history 401 4.842 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:05:14 GMT 
+::1 -  POST /api/history 401 22.256 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:07:49 GMT 

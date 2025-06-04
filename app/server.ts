@@ -29,7 +29,6 @@ const startServer = async () => {
 
   const httpServer = createServer(app);
   const port = validateEnv().port;
-  //   const port = process.env.PORT || 5000;
 
   const server: Server = httpServer.listen(port, () => {
     logger.info(`server listening on port ${port}`);

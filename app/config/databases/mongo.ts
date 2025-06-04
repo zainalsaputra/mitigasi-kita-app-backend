@@ -1,32 +1,18 @@
-// import { PrismaClient } from '../../generated/mongo';
-
-// const mongo = new PrismaClient();
-
-// export const connectToMongo = async (): Promise<void> => {
-//   try {
-//     await mongo.$connect();
-//     console.log('Connected to MongoDB');
-//   } catch (error) {
-//     console.error('MongoDB connection failed:', error);
-//     process.exit(1);
-//   }
-// };
-
-// export const disconnectMongo = async (): Promise<void> => {
-//   await mongo.$disconnect();
-// };
-
-// export default mongo;
-
 import mongoose from 'mongoose';
 
-const MONGO_URL =
-  process.env.DATABASE_MONGO_URL || 'mongodb://localhost:27017/default_db';
+const getMongoUrl = (): string => {
+  const env = process.env.NODE_ENV;
+  if (env === 'production') {
+    return process.env.DATABASE_MONGO_URL_PROD || 'mongodb://localhost:27017/prod_db';
+  }
+  return process.env.DATABASE_MONGO_URL_DEV || 'mongodb://localhost:27017/dev_db';
+};
 
 export const connectToMongo = async (): Promise<void> => {
   try {
+    const MONGO_URL = getMongoUrl();
     await mongoose.connect(MONGO_URL);
-    console.log('Connected to MongoDB');
+    console.log(`Connected to MongoDB (${process.env.NODE_ENV})`);
   } catch (error) {
     console.error('MongoDB connection failed:', error);
     process.exit(1);
@@ -43,3 +29,4 @@ export const disconnectMongo = async (): Promise<void> => {
 };
 
 export default mongoose;
+

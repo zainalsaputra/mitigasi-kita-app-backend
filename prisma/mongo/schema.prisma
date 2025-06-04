@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_MONGO_URL")
+  url      = env("DATABASE_MONGO_URL_PRISMA")
 }
 
 model History {
