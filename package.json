@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "-",
   "main": "index.js",
+  "engines": {
+    "node": "22.15.1"
+  },
   "scripts": {
     "start": "nodemon ./app/server.ts",
+    "start:prod": "node dist/server.js",
     "build": "tsc --project tsconfig.json",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
     "generate:postgres": "npx prisma generate --schema=prisma/postgres/schema.prisma",
-    "generate:mongo": "npx prisma generate --schema=prisma/mongo/schema.prisma"
+    "generate:mongo": "npx prisma generate --schema=prisma/mongo/schema.prisma",
+    "migrate:deploy": "prisma migrate deploy --schema=prisma/postgres/schema.prisma"
   },
   "repository": {
     "type": "git",
