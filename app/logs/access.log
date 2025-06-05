@@ -60,3 +60,8 @@
 ::1 -  POST /api/history 401 24.442 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:04:58 GMT 
 ::1 -  POST /api/history 401 4.842 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:05:14 GMT 
 ::1 -  POST /api/history 401 22.256 ms PostmanRuntime/7.44.0 Wed, 04 Jun 2025 21:07:49 GMT 
+::1 -  POST /api/history 401 178.630 ms PostmanRuntime/7.44.0 Thu, 05 Jun 2025 04:21:53 GMT 
+::1 -  POST /api/auth/register 201 1172.241 ms PostmanRuntime/7.44.0 Thu, 05 Jun 2025 04:22:11 GMT
+::1 -  POST /api/auth/register 409 39.841 ms PostmanRuntime/7.44.0 Thu, 05 Jun 2025 04:22:21 GMT 
+::1 -  POST /api/auth/login 200 333.769 ms PostmanRuntime/7.44.0 Thu, 05 Jun 2025 04:22:34 GMT
+::1 -  POST /api/history 201 212.822 ms PostmanRuntime/7.44.0 Thu, 05 Jun 2025 04:22:46 GMT
