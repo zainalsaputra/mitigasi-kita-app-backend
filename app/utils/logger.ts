@@ -26,7 +26,9 @@ const { format, createLogger, transports } = winston;
 const { printf, combine, timestamp, colorize, uncolorize } = format;
 
 const nodeEnv = validateEnv()?.env;
-const mongoUri = process.env.DATABASE_MONGO_URL || 'mongodb://localhost:27017/logs';
+const mongoUri = validateEnv()?.DATABASE_MONGO_URL || 'mongodb://localhost:27017/activity_logs';
+
+// console.log('MongoDB URL:', mongoUri);
 
 const winstonFormat = printf(({ level, message, timestamp, stack }) => {
   return `${timestamp}: ${level}: ${stack || message}`;
