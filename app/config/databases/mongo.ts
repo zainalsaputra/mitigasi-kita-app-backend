@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 const getMongoUrl = (): string => {
   const env = process.env.NODE_ENV;
   if (env === 'production') {
-    return process.env.DATABASE_MONGO_URL_PROD || 'mongodb://localhost:27017/prod_db';
+    return process.env.DATABASE_MONGO_URL_PROD || '';
   }
-  return process.env.DATABASE_MONGO_URL_DEV || 'mongodb://localhost:27017/dev_db';
+  return process.env.DATABASE_MONGO_URL_DEV || '';
 };
 
 export const connectToMongo = async (): Promise<void> => {
