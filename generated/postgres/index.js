@@ -174,6 +174,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -181,7 +185,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../.env",
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma/postgres",
@@ -191,6 +195,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -199,8 +204,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../generated/postgres\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_POSTGRES_URL_PRISMA\")\n}\n\nmodel User {\n  id           String         @id @default(uuid())\n  name         String\n  email        String         @unique\n  password     String\n  role         Role           @default(USER)\n  createdAt    DateTime       @default(now())\n  updatedAt    DateTime       @updatedAt\n  RefreshToken RefreshToken[]\n  History      History[]\n}\n\nenum Role {\n  USER\n  ADMIN\n}\n\nmodel RefreshToken {\n  id        String   @id @default(uuid())\n  token     String   @unique\n  user      User     @relation(fields: [userId], references: [id])\n  userId    String   @unique\n  expiresAt DateTime\n  createdAt DateTime @default(now())\n}\n\nmodel History {\n  id                 String   @id @default(uuid())\n  user               User     @relation(fields: [userId], references: [id])\n  userId             String\n  location           String\n  city               String\n  agency             String\n  mag_type           String\n  magnitude          Float\n  depth              Float\n  azimuth_gap        Int\n  phasecount         Int\n  potensi_tsunami    String\n  latitude           Float\n  longitude          Float\n  temperature_2m_min Float\n  temperature_2m_max Float\n  windspeed_10m_max  Float\n  precipitation_sum  Float\n  status             String\n  createdAt          DateTime @default(now())\n}\n",
-  "inlineSchemaHash": "15d5facd3a95ad539eb891e8ebfaf120fe3e5ee41928b3bcdc3d42134b815402",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n  output        = \"../../generated/postgres\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_POSTGRES_URL_PRISMA\")\n}\n\nmodel User {\n  id           String         @id @default(uuid())\n  name         String\n  email        String         @unique\n  password     String\n  role         Role           @default(USER)\n  createdAt    DateTime       @default(now())\n  updatedAt    DateTime       @updatedAt\n  RefreshToken RefreshToken[]\n  History      History[]\n}\n\nenum Role {\n  USER\n  ADMIN\n}\n\nmodel RefreshToken {\n  id        String   @id @default(uuid())\n  token     String   @unique\n  user      User     @relation(fields: [userId], references: [id])\n  userId    String   @unique\n  expiresAt DateTime\n  createdAt DateTime @default(now())\n}\n\nmodel History {\n  id                 String   @id @default(uuid())\n  user               User     @relation(fields: [userId], references: [id])\n  userId             String\n  location           String\n  city               String\n  agency             String\n  mag_type           String\n  magnitude          Float\n  depth              Float\n  azimuth_gap        Int\n  phasecount         Int\n  potensi_tsunami    String\n  latitude           Float\n  longitude          Float\n  temperature_2m_min Float\n  temperature_2m_max Float\n  windspeed_10m_max  Float\n  precipitation_sum  Float\n  status             String\n  createdAt          DateTime @default(now())\n}\n",
+  "inlineSchemaHash": "21b8921e1c5cdd16c55ab7f19a188def72c0c1fc2f53e4e97105619a2bb3c350",
   "copyEngine": true
 }
 
@@ -241,6 +246,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "generated/postgres/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
+path.join(process.cwd(), "generated/postgres/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/postgres/schema.prisma")
