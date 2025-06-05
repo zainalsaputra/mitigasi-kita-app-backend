@@ -17,7 +17,8 @@
           "cmds": [
             "npm run generate:postgres",
             "npm run migrate:deploy",
-            "npm run build"
+            "npm run build",
+            "npm run copy:docs"
           ]
         }
       }

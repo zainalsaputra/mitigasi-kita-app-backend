@@ -10,6 +10,7 @@
     "start": "nodemon ./app/server.ts",
     "start:prod": "node dist/server.js",
     "build": "tsc --project tsconfig.json",
+    "copy:docs": "cp -r app/docs/features dist/docs/",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",

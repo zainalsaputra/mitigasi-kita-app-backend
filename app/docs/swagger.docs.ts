@@ -44,14 +44,14 @@ const swaggerOptions: swaggerJsDoc.Options = {
       {
         url:
           process.env.BASE_URL ||
-          'https://sec-prediction-app-backend.vercel.app',
+          'http://localhost:3000',
       },
     ],
   },
   // apis: [path.join(__dirname, '../routes/*.ts')],
   apis: [
-    path.join(__dirname, '../docs/auth.swagger.yaml'),
-    path.join(__dirname, '../docs/history.swagger.yaml'),
+    path.join(__dirname, '../docs/features/auth.swagger.yaml'),
+    path.join(__dirname, '../docs/features/history.swagger.yaml'),
   ],
 };
 
