@@ -24,6 +24,6 @@
     }
   },
   "deploy": {
-    "startCommand": "npm start:prod"
+    "startCommand": "npm run start:prod"
   }
 }
