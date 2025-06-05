@@ -15,9 +15,9 @@
         "build": {
           "dependsOn": ["install"],
           "cmds": [
-            "npm run build",
             "npm run generate:postgres",
-            "npm run migrate:deploy"
+            "npm run migrate:deploy",
+            "npm run build"
           ]
         }
       }
