@@ -209,7 +209,7 @@ export const sendResetEmail = async (token: string) => {
 
 export const updateUserPassword = async (payload: any) => {
   const tokenData = decodeToken(payload.token);
-  if (!tokenData || typeof tokenData === 'string' || !('id' in tokenData)) {
+  if (!tokenData || typeof tokenData === 'string' || !('id' in tokenData && 'email' in tokenData)) {
     throw new createError.Unauthorized('Invalid token');
   }
   const hashedPassword = await bcrypt.hash(payload.password, 10);
