@@ -18,7 +18,7 @@
 
 ## Production URL [Takedown on June 30, 2025]
 
-**URL:** [https://mitigasi-kita-app-backend-production.up.railway.app/](https://mitigasi-kita-app-backend-production.up.railway.app/)
+**URL:** [https://mitigasi-kita-app-backend-production.up.railway.app](https://mitigasi-kita-app-backend-production.up.railway.app)
 
 ---
 
