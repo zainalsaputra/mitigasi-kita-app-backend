@@ -18,7 +18,6 @@
 
 ## Production URL [Takedown on June 30, 2025]
 
-
 **URL:** [https://mitigasi-kita-app-backend-production.up.railway.app/](https://mitigasi-kita-app-backend-production.up.railway.app/)
 
 ---
@@ -27,44 +26,36 @@
 
 ### Backend Libraries
 
-- Prisma ORM  
-- ESLint  
-- Swagger  
-- Nodemon  
-- jsonwebtoken (JWT)  
-- dotenv  
-- ZOD  
-- Morgan  
-- Winston  
-- winston-mongodb  
-- helmet  
-- body-parser  
-- cookie-parser  
-- express-rate-limit  
-- bcryptjs  
+- `express`  
+- `prisma` (ORM)  
+- `jsonwebtoken` (JWT)  
+- `zod` (schema validation)  
+- `bcryptjs` (password hashing)  
+- `dotenv`  
+- `helmet` (security middleware)  
+- `body-parser`  
+- `cookie-parser`  
+- `express-rate-limit`  
+- `morgan` (HTTP logging)  
+- `winston`, `winston-mongodb` (logging system)  
+- `nodemon`
+- `eslint` (linter)  
+- `swagger` (API documentation)
+- `nodemailer` (mailer)
 
 ### Cloud Database Services
 
-- **PostgreSQL** via **Neon**  
-- **MongoDB** via **MongoDB Atlas**
+- **PostgreSQL** via [Neon](https://neon.tech)  
+- **MongoDB** via [MongoDB Atlas](https://www.mongodb.com/atlas)
 
 ---
 
-## Authentication & Authorization
+## Features
 
-*Planned features to be implemented in future release.*
-
----
-
-## Activity Logging
-
-*Planned integration using Winston and MongoDB.*
-
----
-
-## Application History
-
-*Deployment logs, changelogs, and milestones will be recorded here.*
+- Authentication & Authorizations
+- Forgot Password & Reset Password
+- Activity Logging
+- Application History
 
 ---
 
@@ -82,7 +73,7 @@
 
 ## Roadmap / Todo (Next Milestones)
 
-- [ ] ALL
+- [+++] 
 
 ---
 
