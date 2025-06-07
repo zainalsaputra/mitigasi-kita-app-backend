@@ -1,13 +1,13 @@
 import cors from 'cors';
 
 const productionUrl = process.env.PRODUCTION_URL || 'http://localhost:3000';
+const userMailerUrl = process.env.CLIENT_URL || 'http://localhost:5173';
 
 const allowedOrigins: string[] = [
-  'http://localhost:3000/',
-  'http://localhost:3001/',
-  'http://localhost:3002/',
-  'http://localhost:3003/',
+  'http://localhost:3000',
+  'http://localhost:5000',
   productionUrl,
+  userMailerUrl,
 ];
 
 export const corsOptions: cors.CorsOptions = {

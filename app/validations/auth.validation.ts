@@ -20,3 +20,12 @@ export const refreshTokenSchema = z
     refreshToken: z.string(),
   })
   .strict();
+
+export const forgotPasswordSchema = z.object({
+  email: z.string().email()
+}).strict();
+
+export const resetPasswordSchema = z.object({
+  token: z.string(),
+  password: z.string().min(8)
+}).strict();
