@@ -18,3 +18,31 @@
  GET /docs/swagger-ui-standalone-preset.js 304 14.150 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Thu, 05 Jun 2025 08:09:25 GMT
  GET /docs/favicon-32x32.png 304 1.369 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Thu, 05 Jun 2025 08:09:26 GMT
  POST /api/auth/login 200 321.684 ms Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 Thu, 05 Jun 2025 08:09:43 GMT
+ POST /api/auth/forgot-password 404 724.890 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:47:01 GMT 
+ POST /api/auth/register 201 148.154 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:47:32 GMT
+ POST /api/auth/forgot-password 500 1445.813 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:47:44 GMT 
+ POST /api/auth/forgot-password 500 491.460 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:50:04 GMT 
+ POST /api/auth/forgot-password 200 2768.843 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:52:51 GMT
+ POST /api/auth/forgot-password 400 25.639 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:55:37 GMT 
+ POST /api/auth/forgot-password 400 28.549 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:56:29 GMT 
+ POST /api/auth/forgot-password 400 3.045 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:56:36 GMT 
+ POST /api/auth/forgot-password 400 5.641 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:58:22 GMT 
+ POST /api/auth/forgot-password 400 37.895 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:58:54 GMT 
+ POST /api/auth/forgot-password 400 3.946 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:58:58 GMT 
+ POST /api/auth/reset-password 400 25.345 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:59:18 GMT 
+ POST /api/auth/reset-password 401 10.024 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 04:59:22 GMT 
+ POST /api/auth/reset-password 500 6.597 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:01:32 GMT 
+ POST /api/auth/reset-password 200 244.771 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:04:23 GMT
+ POST /api/auth/login 401 98.749 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:04:55 GMT 
+ POST /api/auth/login 200 114.633 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:05:00 GMT
+ POST /api/auth/forgot-password 200 3405.597 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:11:38 GMT
+ POST /api/auth/reset-password 200 124.685 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:13:02 GMT
+ POST /api/auth/forgot-password 200 2714.804 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:13:10 GMT
+ POST /api/auth/reset-password 200 92.008 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:14:10 GMT
+ GET /api/history 401 9.118 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:15:03 GMT 
+ GET /api/history 404 15.329 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:15:27 GMT 
+ POST /api/auth/login 200 101.819 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:15:37 GMT
+ GET /api/history 200 17.582 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:15:48 GMT
+ POST /api/history 201 22.310 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:16:04 GMT
+ POST /api/auth/reset-password 200 141.683 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:22:18 GMT
+ POST /api/auth/reset-password 200 127.884 ms PostmanRuntime/7.44.0 Sat, 07 Jun 2025 05:22:47 GMT

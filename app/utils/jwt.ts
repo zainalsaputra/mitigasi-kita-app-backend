@@ -1,13 +1,13 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 const REFRESH_SECRET = process.env.REFRESH_SECRET || 'refreshsupersecret';
 
-export const generateAccessToken = (payload: object) =>
-  jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' });
+export const generateAccessToken = (payload: string | object | Buffer, expiresIn: string = '1d') =>
+  jwt.sign(payload, JWT_SECRET, { expiresIn } as SignOptions);
 
-export const generateRefreshToken = (payload: object) =>
-  jwt.sign(payload, REFRESH_SECRET, { expiresIn: '7d' });
+export const generateRefreshToken = (payload: string | object | Buffer, expiresIn: string = '7d') =>
+  jwt.sign(payload, REFRESH_SECRET, { expiresIn } as SignOptions);
 
 export const verifyToken = (token: string) => jwt.verify(token, JWT_SECRET);
 
