@@ -56,6 +56,23 @@
 - Forgot Password & Reset Password
 - Activity Logging
 - Application History
+- Prediction Proxy to Model Service (`POST /api/prediction`)
+
+## Model Service Integration
+
+Backend akan meneruskan request prediksi ke service model melalui environment variable `MODEL_URL`.
+
+Contoh konfigurasi `.env`:
+
+```env
+MODEL_URL=http://localhost:5000
+```
+
+Alur integrasi:
+
+1. Frontend kirim koordinat ke backend: `POST /api/prediction`.
+2. Backend call model service: `POST {MODEL_URL}/predict`.
+3. Backend kembalikan response prediksi ke frontend.
 
 ---
 
@@ -95,7 +112,7 @@ cp .env.example .env
 npm run generate:postgres
 
 # 5. Run database migrations
-npm prisma migrate dev --name first-migration
+npx prisma migrate dev --schema=prisma/postgres/schema.prisma --name init-migration
 
 # 6. Start the development server
 npm run start
