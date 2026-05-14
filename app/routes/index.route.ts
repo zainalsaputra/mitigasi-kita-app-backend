@@ -9,4 +9,7 @@ router.use('/auth', apiLimiter, authRoute);
 import historyRoute from './history.route';
 router.use('/history', historyRoute);
 
+import predictionRoute from './prediction.route';
+router.use('/prediction', predictionRoute);
+
 export default router;
